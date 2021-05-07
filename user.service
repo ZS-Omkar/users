@@ -1,0 +1,12 @@
+[Unit]
+Description=User Service
+
+[Service]
+User=root
+ExecStart=java -jar /root/users/target/users-api-0.0.1.jar
+SyslogIdentifier=users
+
+[Install]
+WantedBy=multi-user.target
+
+
