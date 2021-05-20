@@ -2,7 +2,6 @@ pipeline {
   agent {
     label 'NODEJS'
   }
-
   stages {
 
     stage('compile code') {
@@ -12,7 +11,6 @@ pipeline {
         '''
         }
     }
-
     stage('clean package') {
         steps {
         sh '''
@@ -23,10 +21,10 @@ pipeline {
     stage('Prepare Artifacts') {
        steps {
        sh '''
-         zip -r ../users.zip *
+         cp target/*.jar users.jar
+         zip -r users.jar users.zip
        '''
        }
     }
-
   }
 }
